@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +29,5 @@ Route::group([
         Route::get('user', [AuthController::class, 'user']);
     });
 });
+
+Route::resource('employees', EmployeeController::class)->middleware('auth:api');
